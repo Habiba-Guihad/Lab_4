@@ -5,15 +5,16 @@
 package lab4_1;
 
 import java.util.ArrayList;
+import java.util.Scanner;
+
 /**
  *
  * @author Gehad
  */
-public class AdminRole extends UserRole{
+public class AdminRole {
 private EmployeeUserDatabase database;
 
     public AdminRole() {
-        super("Admin");
         // Creates 2el database object
         database = new EmployeeUserDatabase("Employees.txt");
         database.readFromFile(); //loads 2el data men file
@@ -31,12 +32,17 @@ address, String phoneNumber){
         return list.toArray(array); 
  }
  public void removeEmployee(String key) {
-     database.deleteRecord(key); 
+     database.deleteRecords(key); 
             database.saveToFile(); 
  }
-@Override
  public void logout() {
         database.saveToFile();
         System.out.println("Admin logged out.");
     }
+ 
+   
 }
+
+
+ 
+
