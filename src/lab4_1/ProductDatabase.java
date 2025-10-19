@@ -3,14 +3,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package lab4_1;
-/**
- *
- * @author New Eng
- */
+
 import java.io.*;
 import java.util.*;
 
-public class ProductDatabase extends Database{
+public class ProductDatabase {
 
     private ArrayList<Product> records;
     private String filename;
@@ -20,7 +17,6 @@ public class ProductDatabase extends Database{
         this.records = new ArrayList<>();
     }
 
-    @Override
     public void readFromFile() {
         records.clear(); 
         try (Scanner scan = new Scanner(new File(filename))) {
