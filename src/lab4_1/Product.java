@@ -8,7 +8,7 @@ package lab4_1;
  *
  * @author Abdallah
  */
-public class Product {
+public class Product implements Item{
     private String productId;
     private String productName;
     private String manufacturerName;
@@ -32,20 +32,27 @@ public class Product {
     public void setQuantity(int quantity) {
         this.quantity= quantity;
     }
+    
+    @Override
+    public  String lineRepresentation() {
+        return productId + "," + productName + "," + manufacturerName + "," +
+               supplierName + "," + quantity + "," + price;
+    }
+    
+    /**
+     *
+     * @return
+     */
+    @Override
+    public String getSearchKey() {
+        return productId;
+    }
 
     public float getPrice() {
         return price;
     }
     
     
-    public  String lineRepresentation() {
-        return productId + "," + productName + "," + manufacturerName + "," +
-               supplierName + "," + quantity + "," + price;
-    }
-    
-    public String getSearchKey() {
-        return productId;
-    }
     
     
 }
