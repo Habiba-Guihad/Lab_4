@@ -1,0 +1,3 @@
+E1001,Ali Hassan,ali.hassan@example.com,Cairo,01122334455
+E1002,Mona Saleh,mona.saleh@example.com,Alexandria,01098765432
+E1003,Youssef Adel,youssef.adel@example.com,Giza,01234567890
