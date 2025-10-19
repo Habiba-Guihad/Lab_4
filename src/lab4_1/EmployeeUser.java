@@ -8,7 +8,7 @@ package lab4_1;
  *
  * @author Abdallah
  */
-public class EmployeeUser {
+public class EmployeeUser implements Item{
     private String employeeId;
     private String name;
     private String email;
@@ -23,10 +23,12 @@ public class EmployeeUser {
         this.phoneNumber = phoneNumber;
     }
     
+    @Override
     public String lineRepresentation() {
         return employeeId + "," + name+ "," + email+ "," + address+ "," + phoneNumber;
     }
     
+    @Override
     public String getSearchKey() {
         return employeeId;
     }
