@@ -32,7 +32,7 @@ address, String phoneNumber){
         return list.toArray(array); 
  }
  public void removeEmployee(String key) {
-     database.deleteRecords(key); 
+     database.deleteRecord(key); 
             database.saveToFile(); 
  }
  public void logout() {
