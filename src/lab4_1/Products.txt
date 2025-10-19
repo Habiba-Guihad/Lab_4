@@ -1,0 +1,4 @@
+P1001,Laptop,HP,TechSupplier,5,15000.0
+P1002,Smartphone,Samsung,MobileWorld,8,9000.0
+P1003,Headphones,Sony,AudioHub,10,1500.0
+P1004,Monitor,LG,DisplayTech,3,4000.0
