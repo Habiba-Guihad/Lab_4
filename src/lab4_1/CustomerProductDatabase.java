@@ -10,11 +10,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.io.*;
 
-/**
- *
- * @author Dell
- */
-public class CustomerProductDatabase extends Database {
+public class CustomerProductDatabase {
 
     private ArrayList<CustomerProduct> records;
     private String filename;
@@ -23,7 +19,7 @@ public class CustomerProductDatabase extends Database {
         this.filename = filename;
         this.records = new ArrayList<>();
     }
-    @Override
+
     public void readFromFile() {
         records.clear();//3shan at2aked en list empty abl mah 2a2ra
         try {
@@ -133,5 +129,40 @@ public class CustomerProductDatabase extends Database {
         {
             System.out.println("Error writing to file: " + e.getMessage());
         }
+    }
+    
+     public static void main(String[] args) {
+
+        // Create the employee role (this loads existing data)
+        EmployeeRole employee = new EmployeeRole();
+
+        System.out.println("\n===== Adding New Product =====");
+        employee.addProduct("P1001", "Laptop", "Apple", "TechSupplier", 5, 1500f);
+
+        System.out.println("\n===== Purchasing Product =====");
+        employee.purchaseProduct("123456789", "P1001", LocalDate.of(2025, 10, 10));
+
+        System.out.println("\n===== Applying Payment =====");
+        employee.applyPayment("123456789", LocalDate.of(2025, 10, 10));
+
+        System.out.println("\n===== Returning Product =====");
+        employee.returnProduct("123456789", "P1001",
+                LocalDate.of(2025, 10, 10),
+                LocalDate.of(2025, 10, 20)); // within 14 days
+
+        System.out.println("\n===== All Products in File =====");
+        Product[] allProducts = employee.getListOfProducts();
+        for (Product p : allProducts) {
+            System.out.println(p.lineRepresentation());
+        }
+
+        System.out.println("\n===== All Customer Purchases in File =====");
+        CustomerProduct[] allPurchases = employee.getListOfPurchasingOperations();
+        for (CustomerProduct c : allPurchases) {
+            System.out.println(c.lineRepresentation());
+        }
+
+        System.out.println("\n===== Logging Out =====");
+        employee.logout();
     }
 }
