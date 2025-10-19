@@ -14,7 +14,7 @@ import java.io.*;
  *
  * @author Dell
  */
-public class CustomerProductDatabase {
+class CustomerProductDatabase extends Database {
 
     private ArrayList<CustomerProduct> records;
     private String filename;
@@ -23,7 +23,7 @@ public class CustomerProductDatabase {
         this.filename = filename;
         this.records = new ArrayList<>();
     }
-
+    @Override
     public void readFromFile() {
         records.clear();//3shan at2aked en list empty abl mah 2a2ra
         try {
