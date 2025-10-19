@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package lab4_1;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.io.*;
@@ -10,7 +11,7 @@ import java.io.*;
  *
  * @author Dell
  */
-public class EmployeeUserDatabase extends Database
+class EmployeeUserDatabase
 {
     private ArrayList<EmployeeUser> records;
     private String filename;
@@ -19,7 +20,6 @@ public class EmployeeUserDatabase extends Database
         this.filename=filename;
         this.records=new ArrayList<>();
     }
-    @Override
     public void readFromFile()
     {
        records.clear();//3shan at2aked en list empty abl mah 2a2ra
@@ -37,7 +37,7 @@ public class EmployeeUserDatabase extends Database
                }
            }
            scan.close();
-           System.out.println("Employee File read successfully");
+           System.out.println("File read successfully");
        }
        catch(FileNotFoundException e)
        {
@@ -95,10 +95,10 @@ public class EmployeeUserDatabase extends Database
         else
         {
             records.add(record);
-            System.out.println("Employee with id " +record.getSearchKey()+ " added successfully");
+            System.out.println("Employee added successfully");
         }
     }
-    public void deleteRecord(String key)
+    public void deleteRecords(String key)
     {
         boolean found=false;
         for(int i=0;i<records.size();i++)
@@ -130,7 +130,7 @@ public class EmployeeUserDatabase extends Database
                     writer.write("\n");//to add new line
             }
             writer.close();
-            System.out.println("Data saved successfully to " +filename);
+            System.out.println("Data saved successfully");
         }
         catch(IOException e)//input aw output exception w el e heya object mn no3 exception
         {
@@ -138,4 +138,3 @@ public class EmployeeUserDatabase extends Database
         }
     }
 }
-
