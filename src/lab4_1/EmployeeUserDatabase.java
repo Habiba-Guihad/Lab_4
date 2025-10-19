@@ -10,7 +10,7 @@ import java.io.*;
  *
  * @author Dell
  */
-class EmployeeUserDatabase extends Database
+public class EmployeeUserDatabase extends Database
 {
     private ArrayList<EmployeeUser> records;
     private String filename;
