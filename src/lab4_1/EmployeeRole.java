@@ -4,7 +4,6 @@
  */
 package lab4_1;
 
-
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
@@ -14,12 +13,11 @@ import java.util.ArrayList;
  *
  * @author Gehad
  */
-public class EmployeeRole extends UserRole  {
+public class EmployeeRole  {
    private ProductDatabase productsDatabase;
    private CustomerProductDatabase customerProductDatabase;
 //constructor
     public EmployeeRole() {
-        super("Employee");
         productsDatabase = new ProductDatabase("Products.txt");
         productsDatabase.readFromFile();
         customerProductDatabase = new CustomerProductDatabase("CustomersProducts.txt");
@@ -143,7 +141,6 @@ public boolean purchaseProduct(String customerSSN, String productID,LocalDate pu
     }
 
     // method 7
-   @Override
     public void logout() {
         productsDatabase.saveToFile();
         customerProductDatabase.saveToFile();
