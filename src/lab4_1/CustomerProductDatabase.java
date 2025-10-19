@@ -14,7 +14,7 @@ import java.io.*;
  *
  * @author Dell
  */
-class CustomerProductDatabase extends Database {
+public class CustomerProductDatabase extends Database {
 
     private ArrayList<CustomerProduct> records;
     private String filename;
