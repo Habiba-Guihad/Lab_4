@@ -4,6 +4,7 @@
  */
 package lab4_1;
 
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -39,9 +40,8 @@ address, String phoneNumber){
         database.saveToFile();
         System.out.println("Admin logged out.");
     }
- 
-   
 }
+
 
 
  
