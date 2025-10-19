@@ -131,38 +131,5 @@ public class CustomerProductDatabase {
         }
     }
     
-     public static void main(String[] args) {
-
-        // Create the employee role (this loads existing data)
-        EmployeeRole employee = new EmployeeRole();
-
-        System.out.println("\n===== Adding New Product =====");
-        employee.addProduct("P1001", "Laptop", "Apple", "TechSupplier", 5, 1500f);
-
-        System.out.println("\n===== Purchasing Product =====");
-        employee.purchaseProduct("123456789", "P1001", LocalDate.of(2025, 10, 10));
-
-        System.out.println("\n===== Applying Payment =====");
-        employee.applyPayment("123456789", LocalDate.of(2025, 10, 10));
-
-        System.out.println("\n===== Returning Product =====");
-        employee.returnProduct("123456789", "P1001",
-                LocalDate.of(2025, 10, 10),
-                LocalDate.of(2025, 10, 20)); // within 14 days
-
-        System.out.println("\n===== All Products in File =====");
-        Product[] allProducts = employee.getListOfProducts();
-        for (Product p : allProducts) {
-            System.out.println(p.lineRepresentation());
-        }
-
-        System.out.println("\n===== All Customer Purchases in File =====");
-        CustomerProduct[] allPurchases = employee.getListOfPurchasingOperations();
-        for (CustomerProduct c : allPurchases) {
-            System.out.println(c.lineRepresentation());
-        }
-
-        System.out.println("\n===== Logging Out =====");
-        employee.logout();
-    }
+     
 }
