@@ -10,7 +10,8 @@ package lab4_1;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
-public class CustomerProduct {
+public class CustomerProduct implements Item{ 
+
     private String customerSSN;
     private String productID;
     private LocalDate purchaseDate;
@@ -35,6 +36,12 @@ public class CustomerProduct {
         return purchaseDate;
     }
 
+    @Override
+     public String lineRepresentation(){
+         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+        return customerSSN + "," + productID + "," + purchaseDate.format(formatter) + "," + paid;
+     }
+   
     public boolean isPaid() {
         return paid;
     }
@@ -43,14 +50,14 @@ public class CustomerProduct {
         this.paid = paid;
     }
 
-    public String lineRepresentation() {
+    /**
+     *
+     * @return
+     */
+    @Override
+    public String getSearchKey(){
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-        return customerSSN + "," + productID + "," + purchaseDate.format(formatter) + "," + paid;
+        return customerSSN + "," + productID + "," + purchaseDate.format(formatter);
     }
-
-    public String getSearchKey() {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-        return getCustomerSSN() + "," + getProductID() + "," + getPurchaseDate().format(formatter);
-    }
+    
 }
-
