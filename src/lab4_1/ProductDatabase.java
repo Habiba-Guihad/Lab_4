@@ -10,7 +10,7 @@ package lab4_1;
 import java.io.*;
 import java.util.*;
 
-public class ProductDatabase {
+public class ProductDatabase extends Database{
 
     private ArrayList<Product> records;
     private String filename;
@@ -20,6 +20,7 @@ public class ProductDatabase {
         this.records = new ArrayList<>();
     }
 
+    @Override
     public void readFromFile() {
         records.clear(); 
         try (Scanner scan = new Scanner(new File(filename))) {
@@ -123,4 +124,3 @@ public class ProductDatabase {
         }
     }
 }
-
