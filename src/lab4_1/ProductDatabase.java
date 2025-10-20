@@ -7,33 +7,30 @@ package lab4_1;
 import java.io.*;
 import java.util.*;
 
-public class ProductDatabase {
-
-    private ArrayList<Product> records;
-    private String filename;
+public class ProductDatabase extends Database{
 
     public ProductDatabase(String filename) {
-        this.filename = filename;
-        this.records = new ArrayList<>();
+        super(filename);
     }
 
-    public void readFromFile() {
-        records.clear(); 
-        try (Scanner scan = new Scanner(new File(filename))) {
-            while (scan.hasNextLine()) {
-                String line = scan.nextLine();
-                Product product = createRecordFrom(line);
-                if (product != null) {
-                    records.add(product);
-                }
-            }
-            System.out.println("Products file read successfully.");
-        } catch (FileNotFoundException e) {
-            System.out.println("Error: file not found " + filename);
-        }
-    }
+ 
+//    public void readFromFile() {
+//        records.clear(); 
+//        try (Scanner scan = new Scanner(new File(filename))) {
+//            while (scan.hasNextLine()) {
+//                String line = scan.nextLine();
+//                Product product = createRecordFrom(line);
+//                if (product != null) {
+//                    records.add(product);
+//                }
+//            }
+//            System.out.println("Products file read successfully.");
+//        } catch (FileNotFoundException e) {
+//            System.out.println("Error: file not found " + filename);
+//        }
+//    }
 
-    public Product createRecordFrom(String line) {
+    public Item createRecordFrom(String line) {
         String[] parts = line.split(",");
         if (parts.length == 6) {
             try {
@@ -54,69 +51,49 @@ public class ProductDatabase {
         }
     }
 
-    public ArrayList<Product> returnAllRecords() {
-        return records;
-    }
+   
 
-    public boolean contains(String key) {
-        for (Product product : records) {
-            if (product.getSearchKey().equals(key)) {
-                return true;
-            }
-        }
-        return false;
-    }
+//    public void insertRecord(Product record) {
+//        if (record == null) {
+//            System.out.println("Cannot insert a null record.");
+//            return;
+//        }
+//        if (contains(record.getSearchKey())) {
+//            System.out.println("Product with ID " + record.getSearchKey() + " already exists.");
+//        } else {
+//            records.add(record);
+//            System.out.println("Product added successfully.");
+//        }
+//    }
 
-    public Product getRecord(String key) {
-        for (Product product : records) {
-            if (product.getSearchKey().equals(key)) {
-                return product;
-            }
-        }
-        return null;
-    }
-
-    public void insertRecord(Product record) {
-        if (record == null) {
-            System.out.println("Cannot insert a null record.");
-            return;
-        }
-        if (contains(record.getSearchKey())) {
-            System.out.println("Product with ID " + record.getSearchKey() + " already exists.");
-        } else {
-            records.add(record);
-            System.out.println("Product added successfully.");
-        }
-    }
-
-    public void deleteRecord(String key) {
-        boolean found = false;
-        Iterator<Product> iterator = records.iterator();
-        while (iterator.hasNext()) {
-            Product product = iterator.next();
-            if (product.getSearchKey().equals(key)) {
-                iterator.remove();
-                found = true;
-                System.out.println("Product with ID " + key + " deleted successfully.");
-                break;
-            }
-        }
-        if (!found) {
-            System.out.println("No product found with ID " + key);
-        }
-    }
-
-    public void saveToFile() {
-        try (FileWriter writer = new FileWriter(filename, false)) { 
-            for (int i = 0; i < records.size(); i++) {
-                writer.write(records.get(i).lineRepresentation());
-                if (i < records.size() - 1) {
-                    writer.write("\n");
-                }
-            }
-            System.out.println("Product data saved successfully to " + filename);
-        } catch (IOException e) {
-            System.out.println("Error writing to file: " + e.getMessage());
-        }
-    }
+//    public void deleteRecord(String key) {
+//        boolean found = false;
+//        Iterator<Product> iterator = records.iterator();
+//        while (iterator.hasNext()) {
+//            Product product = iterator.next();
+//            if (product.getSearchKey().equals(key)) {
+//                iterator.remove();
+//                found = true;
+//                System.out.println("Product with ID " + key + " deleted successfully.");
+//                break;
+//            }
+//        }
+//        if (!found) {
+//            System.out.println("No product found with ID " + key);
+//        }
+//    }
+//
+//    public void saveToFile() {
+//        try (FileWriter writer = new FileWriter(filename, false)) { 
+//            for (int i = 0; i < records.size(); i++) {
+//                writer.write(records.get(i).lineRepresentation());
+//                if (i < records.size() - 1) {
+//                    writer.write("\n");
+//                }
+//            }
+//            System.out.println("Product data saved successfully to " + filename);
+//        } catch (IOException e) {
+//            System.out.println("Error writing to file: " + e.getMessage());
+//        }
+//    }
 }
