@@ -6,8 +6,6 @@ package lab4_1;
 
 
 import java.util.ArrayList;
-import java.util.Scanner;
-
 /**
  *
  * @author Gehad
