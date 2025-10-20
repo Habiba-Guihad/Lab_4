@@ -28,12 +28,12 @@ address, String phoneNumber){
             database.saveToFile();  
     }
  public EmployeeUser[] getListOfEmployees() {
-    ArrayList<EmployeeUser> list = database.returnAllRecords();
+    ArrayList<Item> list = database.returnAllRecords();
         EmployeeUser[] array = new EmployeeUser[list.size()];
         return list.toArray(array); 
  }
  public void removeEmployee(String key) {
-     database.deleteRecords(key); 
+     database.deleteRecord(key); 
             database.saveToFile(); 
  }
  public void logout() {
